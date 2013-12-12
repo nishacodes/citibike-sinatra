@@ -22,8 +22,20 @@ module Citibike
     get '/' do
       erb :home
     end
+
     get '/form' do
       erb :form
+    end
+
+    post '/form' do
+      "You chose #{params["start"]} and #{params["end"]}"
+      # erb :map
+    end
+
+    post '/map' do
+      @start = params["start"]
+      @end = params["end"]
+      erb :map
     end
 
   end

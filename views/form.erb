@@ -1,11 +1,11 @@
 <h1>MAP MY ROUTE!</h1>
 
-<form action="/form" method="POST">
+<form action="/map" method="POST">
   
   <label for="start">Start: </label>
   <select id="start" name="start">
     <% @data.each do |stationhash|%>
-      <option value="<%= stationhash["name"] %>" > 
+      <option value="<%= [stationhash["lat"],stationhash["lng"]] %>" > 
         <%= stationhash["name"] %> 
       </option>
     <% end %>
@@ -14,7 +14,7 @@
   <label for="end">End: </label>
   <select id="end" name="end">
     <% @data.each do |stationhash|%>
-      <option value="<%= stationhash["name"] %>"> 
+      <option value="<%= [stationhash["lat"],stationhash["lng"]] %>"> 
         <%= stationhash["name"] %> 
       </option>
     <% end %>
@@ -24,3 +24,7 @@
   <br/>
   <button type="submit" value="Get Route">Get Route</button>
 </form>
+
+<!-- 
+params = {"start"=>"W 52 St & 11 Ave", "end"=>"Franklin St & W Broadway"} 
+-->
