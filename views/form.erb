@@ -5,7 +5,7 @@
   <label for="start">Start: </label>
   <select id="start" name="start">
     <% @data.each do |stationhash|%>
-      <option value="<%= [stationhash["lat"]/1000000.00, stationhash["lng"]/1000000.00] %>">
+      <option value="<%= [stationhash["lat"]/1000000.to_f, stationhash["lng"]/1000000.to_f] %>">
         <%= stationhash["name"] %>
       </option>
     <% end %>
@@ -14,7 +14,7 @@
   <label for="end">End: </label>
   <select id="end" name="end">
     <% @data.each do |stationhash|%>
-      <option value="<%= [stationhash["lat"]/1000000.00, stationhash["lng"]/1000000.00] %>">
+      <option value="<%= [stationhash["lat"]/1000000.to_f, stationhash["lng"]/1000000.to_f] %>">
         <%= stationhash["name"] %> 
       </option>
     <% end %>
