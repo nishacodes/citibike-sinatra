@@ -1,0 +1,26 @@
+<h1>MAP MY ROUTE!</h1>
+
+<form action="/form" method="POST">
+  
+  <label for="start">Start: </label>
+  <select id="start" name="start">
+    <% @data.each do |stationhash|%>
+      <option value="<%= stationhash["name"] %>" > 
+        <%= stationhash["name"] %> 
+      </option>
+    <% end %>
+  </select>
+
+  <label for="end">End: </label>
+  <select id="end" name="end">
+    <% @data.each do |stationhash|%>
+      <option value="<%= stationhash["name"] %>"> 
+        <%= stationhash["name"] %> 
+      </option>
+    <% end %>
+  </select>
+  
+  <br/>
+  <br/>
+  <button type="submit" value="Get Route">Get Route</button>
+</form>
